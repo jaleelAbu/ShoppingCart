@@ -1,0 +1,32 @@
+#appHeader
+{
+	height:50px;
+	background-color:#0963A4;
+	margin-bottom:50px;
+}
+
+
+
+#sCartButton
+{
+	float: right;
+    margin-top: 10px;
+    background-color: transparent;
+    border: none;
+	font-size:30px;
+	color:white;
+	
+}
+
+#sCartButton:hover
+{
+	color:#3C9DE6;
+	
+}
+
+#sCartButton:focus {
+    outline: none;
+}
+
+
+

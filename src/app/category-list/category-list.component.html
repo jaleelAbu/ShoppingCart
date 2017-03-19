@@ -1,0 +1,5 @@
+<div class="categoryList">
+	<ul class="list-group">
+	  <li *ngFor="let c of categories" (click)="categorySelected(c.id)" class="list-group-item" [class.active]="selectedCategoryID==c.id">{{c.name}}</li>
+	</ul>
+</div>

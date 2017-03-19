@@ -1,0 +1,70 @@
+<div class="well cartContainer">
+<div *ngIf="cartItems.length==0">
+	<h1>No items in cart!!</h1>
+	<br>
+	<a (click)="fnContinueShopping()" class="btn btn-default">
+            <span class="glyphicon glyphicon-shopping-cart"></span> Continue Shopping
+            </a>
+</div>
+<table class="table table-hover " id="table_to_show" *ngIf="cartItems.length>0">
+   <thead>
+      <tr>
+         <th>Product</th>
+         <th class="text-center">Price</th>
+         <th class="text-center">Qty</th>
+		 <th class="text-center">Total</th>
+         <th>&nbsp;</th>
+      </tr>
+   </thead>
+   <tbody>
+      
+	  <!-- Product Node -->
+	  <tr class="products" *ngFor="let c of cartItems">
+         <td class="col-md-6">
+            <div class="media">
+               <span class="pull-left"> 
+               <img src="{{c.thumbnailUrl}}" class="media-object" style="width: 72px; height: 72px;" alt="">                                    
+               </span>
+               <div class="media-body">
+                  <span class="text-warning"><strong>{{c.title}}</strong></span>
+               </div>
+            </div>
+         </td>
+         <td class="col-md-1 text-center"><strong>{{c.id*idToPriceConverter}}</strong></td>
+         <td class="col-md-1 text-center"><strong><div class="form-group"><input class="form-control" type="number" [(ngModel)]="c.qty" name="qty" min="1" max="100" step="1" value="1"></div></strong></td>
+		 <td class="col-md-1 text-center"><strong>{{c.id*idToPriceConverter*c.qty}} {{currency}}</strong></td>
+         <td class="col-md-1">
+            <div class="remove_con" (click)="removeFromCart(c.id)">
+               <span class="glyphicon glyphicon-remove remove_from_cart_page" ></span>
+            </div>
+         </td>
+      </tr>
+	  <!-- ------ -->
+	  
+      <tr class="last">
+         <td> &nbsp; </td>
+         <td> &nbsp; </td>
+         <td>
+            <h3>Total</h3>
+         </td>
+         <td>
+            <h3><strong><span class="totalPrice">{{getTotalPrice()}} {{currency}}</span></strong></h3>
+         </td>
+      </tr>
+      <tr class="last">
+         <td> &nbsp; </td>
+         <td> &nbsp; </td>
+         <td>
+            <a (click)="fnContinueShopping()" class="btn btn-default">
+            <span class="glyphicon glyphicon-shopping-cart"></span> Continue Shopping
+            </a>
+         </td>
+         <td>
+            <a (click)="fnCheckout()" class="btn btn-success" id="checkout">
+            Checkout <span class="glyphicon glyphicon-play"></span>
+            </a>
+         </td>
+      </tr>
+   </tbody>
+</table>
+</div>

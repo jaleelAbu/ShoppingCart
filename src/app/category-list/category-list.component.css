@@ -1,0 +1,21 @@
+.categoryList
+{
+	box-shadow: 0 2px 2px rgba(0,0,0,.15);
+}
+
+.categoryList li
+{
+	cursor:pointer;
+}
+.categoryList li:hover
+{
+	background-color:#ccc;
+	color:white;
+}
+
+.categoryList .active
+{
+	background-color:#0963A4;
+	
+	color:white;
+}
