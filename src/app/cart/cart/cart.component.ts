@@ -32,6 +32,11 @@ export class CartComponent implements OnInit{
   
   createProductsFromID()
   {
+    /*
+      >> Fectch product ID from Local Storage
+      >> get full information from server with this ID
+      >> fill out cartITems array for cart items dislay
+    */
       if(localStorage.getItem("sCartItems"))
       {
         var cArray = (localStorage.getItem("sCartItems")+"").split(",");
@@ -52,7 +57,11 @@ export class CartComponent implements OnInit{
   fnCheckout()
   {
       alert("Checkout Done! Thanks for Purchase.");
+       
+       //Clear out localstorage
        localStorage.setItem("sCartItems","");
+       
+       //go back to shopping
       this._location.back();
   }
   
@@ -81,6 +90,7 @@ export class CartComponent implements OnInit{
         var cArray=[];
         cArray = (localStorage.getItem("sCartItems")+"").split(",");
         
+        //find the item in cArray >> splice/remove that item >> update the localstorage
         for(var i=0;i<cArray.length;i++)
         {
           if(cArray[i]==productID)
@@ -93,6 +103,7 @@ export class CartComponent implements OnInit{
           }
         }
         
+        //remove that item from cartItems array too. cartItems array is used in ngFor for dislaying the cart items. 
         for(var i=0;i<this.cartItems.length;i++)
         {
           if(this.cartItems[i].id==productID)

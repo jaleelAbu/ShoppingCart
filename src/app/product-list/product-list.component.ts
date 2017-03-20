@@ -14,19 +14,15 @@ export class ProductListComponent implements OnInit,OnDestroy {
   products
   productSubscription
   currency="AED";
-  maxCharactersAllowed = 50;
-  idToPriceConverter = 38;
+  maxCharactersAllowed = 50;//used for text limiting on product tile
+  idToPriceConverter = 38;  //since the fake server doesn't have price field in its json it converts the id to price.
   
   constructor(private _productsService:ProductService,private _router:ActivatedRoute)
   {
      
-     
-     
   }
-   
-   
-   
-   ngOnInit()
+  
+  ngOnInit()
    {
      this._router.params.subscribe(params=>{
        var categoryID = params["categoryID"];

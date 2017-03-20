@@ -15,6 +15,9 @@ export class ProductService {
    
     getProducts(categoryId)
     {
+        /*
+            This function takes categoryID and returs the products wrapped in observable
+        */
         return this._http.get("https://jsonplaceholder.typicode.com/photos?albumId="+categoryId)
         .map(res=>res.json());
         
@@ -22,6 +25,10 @@ export class ProductService {
     
     getProduct(productID)
     {
+        /*
+            This function takes productID and returs the product wrapped in observable
+        */
+
         return this._http.get("https://jsonplaceholder.typicode.com/photos/"+productID)
         .map(res=>res.json());
         

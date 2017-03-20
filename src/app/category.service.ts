@@ -12,10 +12,11 @@ export class CategoryService {
         
     }
    
+   /* This function returs the catgegories wrapped in observable */
     getCategories()
     {
         return this._http.get("https://jsonplaceholder.typicode.com/photos")
-        .map(res=>res.json());
+        .map(categories=>categories.json());
         
     }
     
