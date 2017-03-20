@@ -6,13 +6,13 @@ import {Pipe,PipeTransform} from "@angular/core";
 
 export class LimitTextPipe implements PipeTransform
 {
-    transform(value: string, maxWords: Number)
+    transform(value: string, maxCharacters: Number)
     {
         if(value)
         {
-            if(value.length>maxWords)
+            if(value.length>maxCharacters)
             {
-                return value.substring(0,+maxWords)+"...";
+                return value.substring(0,+maxCharacters)+"...";
             }
             else
             {
