@@ -7,7 +7,7 @@ The app component wraps `Category-list` component, `Product-list` component and 
 
 On clicking a category from category list, the `category-list` component emits an event which is listened by the app component. The app component controls the `router` and `router-outlet` to show the products on screen.  
 
-The `shopping cart button` (positioned on the top right corner of app window) loads the `cart component` in `router-outlet` by using the `routerLink` feature of router. 
+The `shopping cart button` (positioned on the top right corner of app window) loads the `cart component` in `router-outlet` by using the `routerLink` attribute. 
 
 ### Category-list Component
 This component uses `category service` to pull the data from server and store it in `category` array. The `category` array is then used for displaying the category list using `ngFor` in the category template. This component `emits an event` when a category is selected. 
@@ -48,7 +48,18 @@ This `pipe` trims a text for manageable text length on product tile. It appends 
 
 ## Routers
 
-###Router
-This `router` is configured with `app module`. It maps the `router path` to the  allocated component. 
+### Router
+This `router` is configured with `app module`. It maps the `router path` to the  pre-allocated component in router configuration. 
+
+## Other Notes
+### Fake Server
+For fake server the project uses [https://jsonplaceholder.typicode.com/](https://jsonplaceholder.typicode.com/)
+
+### Output View
+Click the below link to view the buit:
+[http://2020worldtrade.com/shoppingCart/](Shopping Cart Live View)
+
+
+
 
 
