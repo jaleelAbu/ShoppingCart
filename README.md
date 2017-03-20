@@ -57,7 +57,7 @@ For fake server the project uses [https://jsonplaceholder.typicode.com/](https:/
 
 ### Output View
 Click the below link to view the buit:
-[http://2020worldtrade.com/shoppingCart/](Shopping Cart Live View)
+[Shopping Cart Live View](http://2020worldtrade.com/shoppingCart/)
 
 
 
