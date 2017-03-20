@@ -1,7 +1,7 @@
 # Shopping Cart
 This project is a basic implementation of Shopping Cart in `Angular JS 2` with `Bootsrap`.  
 The application has following structure:
-## App Module
+## 1. App Module
 ### App Component:
 The app component wraps `Category-list` component, `Product-list` component and a `router-outlet`.
 
@@ -25,7 +25,7 @@ To limit the text length on the product tile, the text has `Pipe feature` implem
 This component is loaded into the `router-outlet` of app component when the router encounters an invalid router path.
 
 
-## Cart Module
+## 2. Cart Module
 
 ### Cart Component
 This component is loaded in `router-outlet` of `app component` when the `Shopping Cart button` on the main app window is clicked. 
@@ -33,7 +33,7 @@ This component is loaded in `router-outlet` of `app component` when the `Shoppin
 The `Cart Component` uses data saved in `Local Storage` to display the cart items.
 When `“Continue Shopping”` button is clicked its calls the navigate back feature of `Location` object to get back to product display view. 
 
-## Services
+## 3. Services
 
 ### Product Service
 This component fetches product data from server and provides it through `getProducts` and `getProduct` function. 
@@ -41,12 +41,12 @@ This component fetches product data from server and provides it through `getProd
 ### Category Service
 This component fetches category data from server and provides it through `getCategories` function. 
 
-## Pipes
+## 4. Pipes
 
 ### Limit text
 This `pipe` trims a text for manageable text length on product tile. It appends `“…”` at the end of the trimmed text. This pipe takes a `maxCharacters` parameter for limiting the text length.
 
-## Routers
+## 5. Routers
 
 ### Router
 This `router` is configured with `app module`. It maps the `router path` to the  pre-allocated component in router configuration. 
