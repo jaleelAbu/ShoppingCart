@@ -1,28 +1,54 @@
-# ShoppingCart
+##Shopping Cart
+This project is a basic implementation of Shopping Cart in `Angular JS 2` with `Bootsrap`.  
+The application has following structure:
+##App Module
+#App Component:
+The app component wraps `Category-list` component, `Product-list` component and a `router-outlet`.
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0-rc.2.
+On clicking a category from category list, the `category-list` component emits an event which is listened by the app component. The app component controls the `router` and `router-outlet` to show the products on screen.  
 
-## Development server
+The `shopping cart button` (positioned on the top right corner of app window) loads the `cart component` in `router-outlet` by using the `routerLink` feature of router. 
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+#Category-list Component
+This component uses `category service` to pull the data from server and store it in `category` array. The `category` array is then used for displaying the category list using `ngFor` in the category template. This component `emits an event` when a category is selected. 
 
-## Code scaffolding
+#Product-list Component
+This component is loaded in `router-outlet` of `app component`. When this component is loaded, it takes `catgegory ID` as parameter from router to display the corresponding category of products.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive/pipe/service/class/module`.
+This component uses `product service` to fetch data from server. Once data is received, it stores it in `product` array which is later used to display the products on the screen.
+When the `shopping cart icon` is clicked on product tile, it saves the information of the product in `Local Storage` which is later used by `cart module`.
 
-## Build
+#Text Overflow Control on Product Tile:
+To limit the text length on the product tile, the text has `Pipe feature` implemented. The Custom built `pipe` substrings the text and appends it with `“…”` string. 
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+#Not-found Component
+This component is loaded into the `router-outlet` of app component when the router encounters an invalid router path.
 
-## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+##Cart Module
 
-## Running end-to-end tests
+#Cart Component
+This component is loaded in `router-outlet` of `app component` when the `Shopping Cart button` on the main app window is clicked. 
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
+The `Cart Component` uses data saved in `Local Storage` to display the cart items.
+When `“Continue Shopping”` button is clicked its calls the navigate back feature of `Location` object to get back to product display view. 
 
-## Further help
+##Services
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+#Product Service
+This component fetches product data from server and provides it through `getProducts` and `getProduct` function. 
+
+#Category Service
+This component fetches category data from server and provides it through `getCategories` function. 
+
+##Pipes
+
+#Limit text
+This `pipe` trims a text for manageable text length on product tile. It appends `“…”` at the end of the trimmed text. This pipe takes a `maxCharacters` parameter for limiting the text length.
+
+##Routers
+
+#Router
+This `router` is configured with `app module`. It maps the `router path` to the  allocated component. 
+
+
